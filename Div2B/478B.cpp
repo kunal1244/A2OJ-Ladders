@@ -2,18 +2,14 @@
 using namespace std;
 #define ll long long int
 
+ll nC2(ll n){
+    return n * (n - 1) / 2;
+}
+
 void solve(){
     ll n, m;
     cin >> n >> m;
-    ll current = 1, result = 0;
-    for(ll i = 0; i < m; i++){
-        ll temp;
-        cin >> temp;
-        if(temp > current) result += temp - current;
-        else if(temp < current) result += temp + n - current;
-        current = temp;
-    }
-    cout << result << endl;
+    cout << nC2(n / m) * (m - n % m) + nC2(n / m + 1) * (n % m) << " " << nC2(n - m + 1) << endl;  
 }
  
 int main(){

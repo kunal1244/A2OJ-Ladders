@@ -7,11 +7,10 @@ void solve(){
     cin >> n >> t;
     string q;
     cin >> q;
-    for(ll i = 0; i < t; i++){
+    while(t--){
         for(ll j = 0; j < n - 1; j++){
             if(q[j] == 'B' && q[j + 1] == 'G'){
-                q[j + 1] = 'B';
-                q[j] = 'G';
+                swap(q[j + 1], q[j]);
                 j++;
             }
         }
@@ -20,6 +19,9 @@ void solve(){
 }
  
 int main(){
+    std::ios_base::sync_with_stdio(NULL);
+	cin.tie(NULL); 
+    cout.tie(NULL);
     ll t = 1;
     // cin >> t;
     while(t--){
