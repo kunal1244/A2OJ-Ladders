@@ -5,18 +5,15 @@ using namespace std;
 void solve(){
     ll n, m;
     cin >> n >> m;
-    set<ll> s;
-    for(ll i = 0; i < n; i++){
-        ll temp;
-        cin >> temp;
-        s.insert(temp);
+    vector<ll> req(n), avail(m);
+    for(ll i = 0; i < n; i++) cin >> req[i];
+    for(ll i = 0; i < m; i++) cin >> avail[i];
+    ll i = 0, j = 0;
+    while(i < n && j < m){
+        if(req[i] <= avail[j]) {i++; j++;}
+        else j++;
     }
-    for(ll i = 0; i < m; i++){
-        ll temp;
-        cin >> temp;
-        if(s.count(temp)) s.erase(temp);
-    }
-    cout << s.size() << endl;
+    cout << n - i << endl;
 }
  
 int main(){
