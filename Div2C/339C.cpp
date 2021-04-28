@@ -12,7 +12,7 @@ bool dfs(int bal, int prev, int mval){
     if (mval == m) return true;
     bool flag = false;
     for (int i = 1; i <= 10; ++i){
-        if (weights[i] && bal + i > 0 && prev != i) flag = dfs(0 - bal - i, i, mval + 1);
+        if (weights[i] && bal + i > 0 && prev != i) flag = dfs(- bal - i, i, mval + 1);
         if (flag){ result.push_back(i); return true; }
     }
     return flag;
